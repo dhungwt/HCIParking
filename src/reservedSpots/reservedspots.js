@@ -1,19 +1,17 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "./reservedSpot.css";
-import "../mainMap/mMap.css"
+import "../mainMap/mMap.css";
 import logo from "./checkmark.png";
-import MMap from "../mainMap/mMap";
-
+import MMap from "../mainMap/MMap";
 
 function ReservedSpot(props) {
   const { spotNumber } = useParams();
   const navigate = useNavigate();
 
   const [timer, setTimer] = useState("10:00");
-  const [isConfirmed, setIsConfirmed] = useState(false); // State to track confirmation status
-  const [timerActive, setTimerActive] = useState(false); // State to control timer activation
 
+  const [timerActive, setTimerActive] = useState(false); // State to control timer activation
 
   useEffect(() => {
     let timerId;
@@ -33,13 +31,15 @@ function ReservedSpot(props) {
 
         // Display the time in the "timer" state
         setTimer(
-          `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`
+          `${minutes.toString().padStart(2, "0")}:${seconds
+            .toString()
+            .padStart(2, "0")}`
         );
 
         // When the timer reaches 0
         if (minutes <= 0 && seconds <= 0) {
           setTimer("00:00");
-          setIsConfirmed(false);
+          props.setIsConfirmed(false);
           setTimerActive(false);
           props.cancelReservation(parseInt(spotNumber));
           navigate("/"); // Reset to the homepage if canceled
@@ -60,17 +60,16 @@ function ReservedSpot(props) {
     if (timerActive) {
       updateTimer();
     }
-
   }, [timerActive, navigate, spotNumber, props]);
 
   const handleConfirm = () => {
-    setIsConfirmed(true);
+    props.setIsConfirmed(true);
     setTimerActive(true); // Start the timer on confirmation
     props.reserveSpot(parseInt(spotNumber));
   };
 
   const handleCancel = () => {
-    setIsConfirmed(false);
+    props.setIsConfirmed(false);
     setTimerActive(false);
     setTimer("10:00"); // Reset the timer
     props.cancelReservation(parseInt(spotNumber));
@@ -84,7 +83,7 @@ function ReservedSpot(props) {
         <h1 className="title-prompt">Reserve Spot #{spotNumber}</h1>
         <img className="logo" src={logo} alt="Checkmark" />
       </div>
-      {!isConfirmed && (
+      {!props.isConfirmed && (
         <div className="button-container">
           <button onClick={handleConfirm} className="Confirm-btn">
             Confirm Spot
@@ -94,7 +93,7 @@ function ReservedSpot(props) {
           </button>
         </div>
       )}
-      {isConfirmed && (
+      {props.isConfirmed && (
         <div>
           <p className="timeleft-prompt">
             You have 10 minutes of reserved parking space.
@@ -109,8 +108,7 @@ function ReservedSpot(props) {
       )}
       <hr className="bottom-line" />
 
-      <MMap spots={props.spots}/>
-
+      <MMap spots={props.spots} />
     </div>
   );
 }

@@ -1,19 +1,23 @@
 import React from "react";
+import { useEffect } from "react";
 import { Link } from 'react-router-dom';
 import "./mMap.css";
 
-function mMap({ spots }) {
+function MMap({ spots , isConfirmed}) {
   // console.log(spots)
   const rows = [];
+
   for (let row = 1; row <= 7; row++) {
     const cells = [];
     for (let col = 1; col <= 18; col++) {
       const spotNumber = row === 1 ? col : col + 18;
       const isReserved = spots.get(spotNumber) === "RESERVED";
+
       cells.push(
         <td key={col} className={`table-cell ${isReserved ? 'reserved' : ''}`}>
           {(row === 1 || row === 7) && (
-            <Link to={`/reservedSpots/${spotNumber}`}>{spotNumber}</Link>
+            <Link to={`/reservedSpots/${spotNumber}`}>{spotNumber}</Link> 
+            //to prevent multiple reservations, consider implementing an onClick inside the td on l.17 in the future or useNavigate
           )}
         </td>
       );
@@ -33,4 +37,4 @@ function mMap({ spots }) {
   );
 }
 
-export default mMap;
+export default MMap;
