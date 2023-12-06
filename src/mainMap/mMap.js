@@ -24,22 +24,29 @@ function mMap({ spots }) {
 
   return (
     <div className="mapContainer">
-      <div className="tableWrapper">
-      <p style={{
-          textAlign: "center",
-          backgroundColor: "aliceblue",
-          borderRadius: "28px",
-          boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-        }}>
-          Click on a parking spot to reserve it. If you find a spot you'd like,
-          click on the number, and you'll be prompted to confirm your reservation.
-        </p>
-
-        <table className="mMap">
-          <tbody>{rows}</tbody>
-        </table>
-      </div>
+    <div className="tableWrapper">
+      <table className="mMap">
+        <tbody>{rows}</tbody>
+      </table>
     </div>
+    <p style={{
+      textAlign: "center",
+      backgroundColor: "aliceblue",
+      borderRadius: "9px",
+      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+      position: "absolute",
+      padding:"30px",
+      top: "200px", 
+      left: "50%",
+      transform: "translateX(-50%)",
+      zIndex: 1, // Ensure the note appears above the table
+      maxWidth:"800px"
+    }}>
+      Say hello to the easiest way to find parking on Campus Bedford Ave side!
+      Click on a parking spot to reserve it. If you find a spot you'd like,
+      click on the number, and you'll be prompted to confirm your reservation.
+    </p>
+  </div>
   );
 }
 
