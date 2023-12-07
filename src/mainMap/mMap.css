@@ -18,3 +18,23 @@
 .table-cell.reserved {
   background-color: red;
 }
+.note {
+  text-align: center;
+  background-color: aliceblue;
+  border-radius: 9px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  padding: 30px;
+  top: 16%; /* Adjust this value to control the distance from the top */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  max-width: 800px;
+}
+
+/* Additional styling for smaller screens */
+@media (max-width: 960px) {
+  .note {
+    top: 9%; /* Adjust this value for smaller screens */
+  }
+}
