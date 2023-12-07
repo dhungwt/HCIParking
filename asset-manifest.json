@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/HCIParking/static/css/main.70c01558.css",
+    "main.css": "/HCIParking/static/css/main.bb40b274.css",
     "main.js": "/HCIParking/static/js/main.fc46a2c9.js",
     "static/js/787.9722a464.chunk.js": "/HCIParking/static/js/787.9722a464.chunk.js",
     "static/media/Satellite2.jpeg": "/HCIParking/static/media/Satellite2.65c6989c3957dfa2a634.jpeg",
@@ -8,12 +8,12 @@
     "static/media/UserProfileBackground.png": "/HCIParking/static/media/UserProfileBackground.e9b6a13a74043917cd83.png",
     "static/media/UserProfileIcon.png": "/HCIParking/static/media/UserProfileIcon.89b7b4c732932e09ae8c.png",
     "index.html": "/HCIParking/index.html",
-    "main.70c01558.css.map": "/HCIParking/static/css/main.70c01558.css.map",
+    "main.bb40b274.css.map": "/HCIParking/static/css/main.bb40b274.css.map",
     "main.fc46a2c9.js.map": "/HCIParking/static/js/main.fc46a2c9.js.map",
     "787.9722a464.chunk.js.map": "/HCIParking/static/js/787.9722a464.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.70c01558.css",
+    "static/css/main.bb40b274.css",
     "static/js/main.fc46a2c9.js"
   ]
 }
