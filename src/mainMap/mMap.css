@@ -12,7 +12,7 @@
 
 .tableWrapper {
   position: absolute;
-  width: 100%;
+  width: 97.5%;
 }
 
 .table-cell.reserved {
@@ -25,16 +25,26 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   position: absolute;
   padding: 30px;
-  top: 16%; /* Adjust this value to control the distance from the top */
+  top: 16%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 1;
   max-width: 800px;
 }
 
-/* Additional styling for smaller screens */
 @media (max-width: 960px) {
   .note {
+    top: 9%; 
+  }
+}
+@media (max-height: 960px) {
+  .note {
     top: 9%; /* Adjust this value for smaller screens */
+  }
+}
+@media  (max-height: 853px) {
+  .note {
+    top:1%;  
+    width: 900px;
   }
 }
